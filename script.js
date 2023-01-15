@@ -1,16 +1,26 @@
-console.log('script loaded');
-let toDoList = [];
-const newToDo = document.getElementById('todoinput').innerText;
-const logArrayButton = document.getElementById('logarray');
-console.log('NewTodo Before function is ', newToDo)
+let toDoList = [];  //create empty array
+
+const submitTodo = document.getElementById('todoinputsubmit'); // create a pointer to the html element #todoinput for later click event
+
+
 const addFunction = function () {
-    console.log('addFunction RAN');
-    toDoList.push(newToDo);
-    console.log('newToDo in function is:', newToDo)
-    console.log(toDoList);
+    const inputValue = document.querySelector("#todoinput").value
+    toDoList.push(inputValue)
+    document.querySelector("#todoinput").value = '' //resets form to empty string
+    displayList()
+}
+const displayList = function () {
+    for (let index = 0; index < toDoList.length; index++) {
+        let element = toDoList[index];
+        element = '<li>' + element + '</li>';
+        toDoList[index] = element
+
+    }
+    document.getElementById('todolist').innerHTML = toDoList
 }
 
-logArrayButton.addEventListener('click', addFunction);
+submitTodo.addEventListener('click', addFunction);
+
 
 
 
