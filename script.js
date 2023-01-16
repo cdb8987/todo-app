@@ -16,7 +16,6 @@ const addFunction = function () {  //this fires every time 'add' is clicked
                 const pButton = p.getElementsByTagName('button')[0]
                 console.log('PBUTTON IS', pButton)
                 pButton.addEventListener('click', () => {
-                    console.log('button event triggered')
                     p.style['display'] = 'none'
                 })
             }
